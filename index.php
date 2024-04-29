@@ -24,14 +24,19 @@ $lname = '';
 $roll  = '';
 
 
-if (isset($_POST['submit'])) {
+
+
+if (isset($_POST['submit'])) {  
+    if('edit'==$task){
+
+        $id = $_GET['id'];
+    }  
     $fname = htmlspecialchars($_POST['fname']);
     $lname = htmlspecialchars($_POST['lname']);
     $roll = htmlspecialchars($_POST['roll']);
-    $id = $_POST['id'];
 
 
-    if ($id) {
+    if (isset($id)) {
         //update the existing student
         if ($fname != '' && $lname != '' && $roll != '') {
             $result = updateStudent($id, $fname, $lname, $roll);
